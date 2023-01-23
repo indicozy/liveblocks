@@ -37,7 +37,7 @@ export default function Example() {
   return (
     <div className={styles.container}>
       <div className={styles.canvas}>
-        <Canvas pixelRatio={[1, 1.5]} camera={{ position: [0, 0, 2.75] }}>
+        <Canvas dpr={[1, 1.5]} camera={{ position: [0, 0, 2.75] }}>
           <ambientLight intensity={0.3} />
           <spotLight
             intensity={0.3}
@@ -83,8 +83,13 @@ export default function Example() {
   );
 }
 
+
+
 function Shoe({ snap, selectMaterial }) {
-  const { nodes, materials } = useGLTF("/shoe.glb");
+
+  // make typescript happy
+  // const { nodes, materials } = useGLTF("/shoe.glb");
+// type GLTFResult = { nodes: any; materials: any };
 
   return (
     <group
